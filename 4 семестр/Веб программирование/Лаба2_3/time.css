@@ -1,0 +1,166 @@
+@font-face {
+	font-family: 'Logo Font';
+	src: url('fonts/Lobster_Regular.ttf');
+}
+
+@font-face {
+	font-family: 'KumbhSans';
+	src: url('fonts/KumbhSans-Regular.ttf');
+}
+
+body {
+    background-color: #c0bfbf;
+}
+
+main {
+    background-color: #c0bfbf;
+    color: #252323;
+
+    flex: 1 1;
+}
+
+main>* {
+    text-align: center;
+    margin: 0 auto;
+}
+
+main header {
+    font-size: 35px;
+    letter-spacing: 0.05em;
+
+    margin: 15px;
+}
+
+main table {
+    margin: 5px;
+
+    border-spacing: 0px;
+    border-collapse: collapse;
+}
+
+main table td {
+    display: inline-block;
+    box-sizing: border-box;
+
+    /* border: 2px solid black; */
+
+    padding: 0px;
+
+    max-width: 50px;
+    max-height: 50px;
+}
+
+main table tr {
+    display: block;
+    max-width: 150px;
+    max-height: 50px;
+}
+
+main table button{
+    box-sizing: border-box;
+
+    padding: 0px;
+
+    /* background-color: rgb(224, 224, 224); */
+    background-image: radial-gradient(circle at 50% 50%, rgb(224, 224, 224), rgb(196, 196, 196));
+
+    border-width: 1px;
+
+    width: 50px;
+    height: 50px;
+}
+
+main table button:hover{
+    transition: border 0.1s ease;
+    border-width: 2px;
+}
+
+main table button:active{
+    /* transition: background-color 0.1s ease; */
+    background-image: unset;
+    background-color: #ff7474;
+}
+
+main table button:focus {
+    outline: none;
+}
+
+.fillword-container {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+}
+
+.fillword-table-container {
+    position: relative;
+}
+
+.like-button {
+    box-sizing: border-box;
+
+    position: absolute;
+
+    top: -10px;
+    right: -40px;
+
+    margin: 5px;
+    padding: 0px;
+
+    width: 30px;
+    height: 30px;
+
+    text-shadow: 0.5px 0.5px 1px #000;
+
+    border: 0px;
+    background-color:#c0bfbf;
+    border-radius: 5px;
+
+    line-height: 100%;
+    
+    font-size: 11pt;
+    text-align: center;
+}
+
+.like-button:hover {
+    transition: all 0.2s ease;
+
+    background-color:#ff4b4b;
+    border-radius: .4em;
+}
+
+.like-button:active {
+    background-color:#d14b4b;
+    border-radius: .4em;
+}
+
+.like-button:focus {
+    outline: none;
+}   
+
+.change-size-label {
+    margin: 10px 0px 8px 0px;
+
+    font-size: 14pt;
+}
+
+main select {
+    font-family: "KumbhSans";
+    font-size: 20pt;
+
+    padding: .2em;
+
+    border-radius: .5em;
+
+    width: 4em;
+    
+}
+
+main select:focus {
+    outline: none;
+}
+
+.time-label {
+    font-size: 20pt;
+
+    margin: 5px;
+}

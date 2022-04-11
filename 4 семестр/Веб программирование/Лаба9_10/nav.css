@@ -1,0 +1,172 @@
+@font-face {
+	font-family: 'Logo Font';
+	src: url('fonts/Lobster_Regular.ttf');
+}
+
+@font-face {
+	font-family: 'KumbhSans';
+	src: url('fonts/KumbhSans-Regular.ttf');
+}
+
+.content-container {
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+nav {
+    display: grid;
+    grid-template-columns: max-content 1fr 100px 100px;
+    grid-template-rows: 100px;
+    
+    grid-auto-flow: row;
+
+    padding: 0px 10px 0px 10px;
+    margin: 0px;
+
+    background-color: rgb(65, 62, 62);
+
+    gap: 5px;
+}
+
+nav div:focus {
+    outline: none;
+}
+
+.header-link {
+    box-sizing: border-box;
+
+    color: #e4e4e4;
+
+    font-family: sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    line-height: 14px;
+
+    transition: background-color 0.15s ease-in-out;
+
+    width: 100%;
+    height: 100%; 
+    gap: 5px;
+
+    padding: 10px 10px;
+
+    text-decoration: none;
+
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: space-evenly;
+
+    text-transform: uppercase;
+
+    cursor: pointer;
+}
+
+.header-link:hover {
+    background-color: #9c9c9c;
+}
+
+.header-link > img {
+    width: 45px;
+    height: 45px;
+}
+
+.site-name {
+    font-size: 30pt;
+}
+
+.logo {
+    font-family: 'Logo Font';
+    font-size: 36px;
+    line-height: 100%;
+    color: #e4e4e4;
+
+    justify-self: center;
+    align-self: center;
+
+    width: 100%;
+
+    text-decoration: none;
+
+    text-transform: uppercase;
+}
+
+.logo:hover {
+    color: #e4e4e4;
+}
+
+.logo:visited {
+    color: #e4e4e4;
+}
+
+.level-holder {
+    align-self: center;
+    justify-self: center;
+    
+    font-size: 25px;
+    letter-spacing: 0.1em;
+
+    line-height: 100%;
+    width: 100%;
+
+    color: #e4e4e4;
+
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+aside {
+    display: flex;
+    flex-flow: column nowrap;
+
+    gap: 10px;
+
+    background-color: rgb(65, 62, 62);
+    color: #e4e4e4;
+ 
+    border-radius: .7em;
+
+    position: relative;
+    top: -15px;
+
+    min-height: max-content;
+
+    font-size: 25px;
+
+    padding: 10px;
+}
+
+aside header {
+    font-size: 1.5em;
+
+    white-space: nowrap;
+
+    margin: 10px;
+}
+
+aside>div {
+    text-decoration: none;
+    color: #e4e4e4;
+
+    margin-left: 10px;
+
+    cursor: pointer;
+}
+
+aside>div:visited {
+    color: #e4e4e4;
+}
+
+aside>div:hover {
+    transition-duration: 0.1s;
+    transition-property: color;
+
+    color: #868686;
+}
+
+aside>div:focus {
+    outline: none;
+}

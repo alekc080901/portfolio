@@ -1,0 +1,86 @@
+<!DOCTYPE HTML>
+<html lang="ru">
+    <head>
+        <title>
+            Филворды онлайн
+        </title>
+        <meta charset="utf-8">
+        <meta name="description" content="Филворды (венгерские кроссворды) – занимательные головоломки, цель которых – искать слова 
+        на сетке из букв. Они отлично помогают в развитии наблюдательности, а также являются отличным способом скоротать время.
+        На нашем сайте вы можете решить филворды онлайн бесплатно и без регистрации.">
+        <meta name="keywords" content="Филворд, Филворд онлайн, головоломка, онлайн, кроссворд, слово">
+        <meta name="author" content="Alexander Nikitin">
+
+        <link  rel = "stylesheet" href =  "nav.css"> 
+        <link  rel = "stylesheet" href =  "time.css"> 
+    </head>
+
+    <body>
+        <nav>
+            <a href="simple_fillword.html" class="logo">
+                Филворды Онлайн
+            </a>
+
+            <div class="level-holder">
+                <span>Уровень: 3</span>
+                <progress value = "25" max = "100"> </progress>
+            </div>
+
+            <a class="header-link" href="shop.html">
+                <img src="./shop.png" alt="">
+                <span>Магазин</span>
+            </a>
+
+            <a class="header-link" href="shop.html">
+                <img src="./key-icon.png" alt="">
+                <span>Войти</span>
+            </a>
+        </nav>
+
+        <div class="content-container">
+            <aside>
+                <header>Режимы игры</header>
+                <a href="simple_fillword.html">Простой филворд</a>
+                <a href="time_fillword.html">Филворд на время</a>
+                <a href="favourites.html">Понравившиеся</a>
+            </aside>
+
+            <main>
+                <header>Филворд на время</header>
+                <div class="fillword-container">
+                    <div class="fillword-table-container">
+                        <table>
+                            <tr>
+                                <td><button></button></td><td><button></button></td><td><button></button></td>
+                            </tr>
+                            <tr>
+                                <td><button></button></td><td><button></button></td><td><button></button></a></td>
+                            </tr>
+                            <tr>
+                                <td><button></button></td><td><button></button></td><td><button></button></td>
+                            </tr>
+                        </table>
+                        <button class="like-button">❤️</button>
+                    </div>
+                </div>
+
+                <div class="time-label">
+                    <div>Время: 00:00</div>
+                </div>
+
+                <div>
+                    <p class="change-size-label">Настроить размер</p>
+                    <select name="size">
+                        <option value="4">4X4</option>
+                        <option value="5">5X5</option>
+                        <option value="6" selected>6X6</option>
+                        <option value="7">7X7</option>
+                        <option value="8">8X8</option>
+                        <option value="9">9X9</option>
+                        <option value="10">10X10</option>
+                    </select>
+                </div>
+            </main>
+        </div>
+    </body>
+</html>

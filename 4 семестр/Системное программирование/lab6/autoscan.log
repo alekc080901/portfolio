@@ -1,0 +1,10 @@
+autoscan: warning: missing AC_CHECK_FUNCS([memset]) wanted by: 
+	signals.c:103
+	signals.c:121
+	socketOperations.c:173
+autoscan: warning: missing AC_CHECK_HEADERS([arpa/inet.h]) wanted by: 
+	socketOperations.c:6
+autoscan: warning: missing AC_CHECK_HEADERS([netinet/in.h]) wanted by: 
+	socketOperations.c:5
+autoscan: warning: missing AC_CHECK_HEADERS([sys/time.h]) wanted by: 
+	signals.c:1

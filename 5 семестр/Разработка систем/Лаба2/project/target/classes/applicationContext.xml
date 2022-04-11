@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:property-placeholder location="classpath:database.properties"/>
+
+    <bean id="tent"
+          class="ru.second.xmlConfig.Tent">
+        <constructor-arg value="2"/>
+        <property name="humanCapacity" value="${tent.humanCapacity}"/>
+    </bean>
+
+    <bean id="shovel"
+          class="ru.second.xmlConfig.Shovel">
+        <constructor-arg type="ru.second.xmlConfig.ShovelTypes" value="SPADE"/>
+        <property name="type" value="${ru.second.annotationConfig.shovelTypes}"/>
+    </bean>
+
+    <bean id="cannedFood"
+          class="ru.second.xmlConfig.CannedFood">
+        <constructor-arg value="Ананасы"/>
+        <property name="product" value="${cannedFood.product}"/>
+    </bean>
+
+    <bean id="backpack"
+          class="ru.second.xmlConfig.Backpack">
+        <constructor-arg value="${backpack.brandName}"/>
+        <property name="burden" ref="cannedFood"/>
+    </bean>
+</beans>

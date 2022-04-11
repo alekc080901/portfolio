@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <title>Изменение</title>
+  </head>
+  <body>
+    <form method="POST" action="/edit">
+      <p>
+        <label for="id">ID изменяемого товара:</label>
+        <input th:name="id" type="text" id="id"/>
+      </p>
+
+      <p>
+        <label for="type">Тип товара:</label>
+        <input th:name="type" type="text" id="type"/>
+      </p>
+
+      <p>
+        <label for="subtype">Подтип товара:</label>
+        <input th:name="subtype" type="text" id="subtype"/>
+      </p>
+
+      <p>
+        <label for="price">Цена:</label>
+        <input th:name="price" type="text" id="price"/>
+      </p>
+
+      <p>
+        <label for="amount">Количество:</label>
+        <input th:name="amount" type="text" id="amount"/>
+      </p>
+
+      <p>
+        <label for="manufacturer">Производитель:</label>
+        <input th:name="manufacturer" type="text" id="manufacturer"/>
+      </p>
+
+      <input type="submit" value="Изменить">
+    </form>
+  </body>
+</html>

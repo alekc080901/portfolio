@@ -1,0 +1,26 @@
+# The set of languages for which implicit dependencies are needed:
+set(CMAKE_DEPENDS_LANGUAGES
+  "C"
+  )
+# The set of files for implicit dependencies of each language:
+set(CMAKE_DEPENDS_CHECK_C
+  "D:/UNIX/VM_EXCHANGE/lab8/algorithm.c" "D:/UNIX/VM_EXCHANGE/lab8/cmake-build-debug/CMakeFiles/lab2.dir/algorithm.c.obj"
+  "D:/UNIX/VM_EXCHANGE/lab8/client.c" "D:/UNIX/VM_EXCHANGE/lab8/cmake-build-debug/CMakeFiles/lab2.dir/client.c.obj"
+  "D:/UNIX/VM_EXCHANGE/lab8/log.c" "D:/UNIX/VM_EXCHANGE/lab8/cmake-build-debug/CMakeFiles/lab2.dir/log.c.obj"
+  "D:/UNIX/VM_EXCHANGE/lab8/security.c" "D:/UNIX/VM_EXCHANGE/lab8/cmake-build-debug/CMakeFiles/lab2.dir/security.c.obj"
+  "D:/UNIX/VM_EXCHANGE/lab8/server.c" "D:/UNIX/VM_EXCHANGE/lab8/cmake-build-debug/CMakeFiles/lab2.dir/server.c.obj"
+  "D:/UNIX/VM_EXCHANGE/lab8/signals.c" "D:/UNIX/VM_EXCHANGE/lab8/cmake-build-debug/CMakeFiles/lab2.dir/signals.c.obj"
+  "D:/UNIX/VM_EXCHANGE/lab8/socketOperations.c" "D:/UNIX/VM_EXCHANGE/lab8/cmake-build-debug/CMakeFiles/lab2.dir/socketOperations.c.obj"
+  )
+set(CMAKE_C_COMPILER_ID "GNU")
+
+# The include file search paths:
+set(CMAKE_C_TARGET_INCLUDE_PATH
+  )
+
+# Targets to which this target links.
+set(CMAKE_TARGET_LINKED_INFO_FILES
+  )
+
+# Fortran module output directory.
+set(CMAKE_Fortran_TARGET_MODULE_DIR "")

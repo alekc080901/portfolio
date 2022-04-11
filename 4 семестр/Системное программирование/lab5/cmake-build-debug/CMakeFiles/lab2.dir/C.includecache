@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+D:/UNIX/VM_EXCHANGE/lab5/algorithm.c
+string.h
+-
+stdlib.h
+-
+stdbool.h
+-
+math.h
+-
+stdio.h
+-
+algorithm.h
+D:/UNIX/VM_EXCHANGE/lab5/algorithm.h
+
+D:/UNIX/VM_EXCHANGE/lab5/algorithm.h
+

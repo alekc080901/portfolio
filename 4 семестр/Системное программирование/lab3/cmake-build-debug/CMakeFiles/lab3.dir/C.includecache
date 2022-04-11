@@ -1,0 +1,46 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+D:/UNIX/VM_EXCHANGE/lab3/linkedList.c
+stdlib.h
+-
+stdio.h
+-
+string.h
+-
+stdbool.h
+-
+ctype.h
+-
+
+D:/UNIX/VM_EXCHANGE/lab3/linkedList.h
+
+D:/UNIX/VM_EXCHANGE/lab3/main.c
+stdio.h
+-
+stdbool.h
+-
+stdlib.h
+-
+userInput.h
+D:/UNIX/VM_EXCHANGE/lab3/userInput.h
+linkedList.h
+D:/UNIX/VM_EXCHANGE/lab3/linkedList.h
+
+D:/UNIX/VM_EXCHANGE/lab3/userInput.c
+stdio.h
+-
+stdlib.h
+-
+stdbool.h
+-
+string.h
+-
+
+D:/UNIX/VM_EXCHANGE/lab3/userInput.h
+

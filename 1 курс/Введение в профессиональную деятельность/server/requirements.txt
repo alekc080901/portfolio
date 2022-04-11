@@ -1,0 +1,12 @@
+requests
+jsonschema
+pyjwt
+werkzeug
+pymongo
+flask
+dnspython
+gunicorn
+flask_cors
+nanoid
+pytest
+pytest-flask

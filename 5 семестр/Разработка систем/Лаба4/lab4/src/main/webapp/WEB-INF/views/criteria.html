@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <title>Поиск по критерию</title>
+  </head>
+  <body>
+    <form method="POST" action="/show_criteria">
+      <p>
+        <label for="manufacturer">Производитель:</label>
+        <input th:name="manufacturer" type="text" id="manufacturer"/>
+      </p>
+
+      <input type="submit" value="Посмотреть">
+    </form>
+  </body>
+</html>

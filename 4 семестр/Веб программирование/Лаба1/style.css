@@ -1,0 +1,18 @@
+body {
+    background-color: azure;
+    font-family: 'century gothic';
+    font-size: 12pt;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.site-name {
+    font-size: 30pt;
+}
+
+.logo {
+    background-image: none;
+}

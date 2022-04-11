@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+   <meta charset="UTF-8">
+  <title>Главная</title>
+</head>
+<body>
+  <p><a href="/add">Добавить запись в таблицу</a></p>
+  <p><a href="/edit">Редактировать запись</a></p>
+  <p><a href="/delete">Удалить запись</a></p>
+  <p><a href="/show_criteria">Посмотреть содержимое таблицы по производителю</a></p>
+
+  <p></p>
+  <table>
+    <thead>
+      <tr>
+        <td><b>id</b></td>
+        <td><b>type</b> </td>
+        <td><b>subtype</b> </td>
+        <td><b>manufacturer</b> </td>
+        <td><b>price</b> </td>
+        <td><b>amount</b> </td>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr th:each="good: ${stationery}">
+
+        <td th:text="${good.getId()}"></td>
+        <td th:text="${good.getType()}"></td>
+        <td th:text="${good.getSubtype()}"></td>
+        <td th:text="${good.getManufacturer()}"></td>
+        <td th:text="${good.getPrice()}"></td>
+        <td th:text="${good.getAmount()}"></td>
+
+      </tr>
+    </tbody>
+  </table>
+</body>
+</html>

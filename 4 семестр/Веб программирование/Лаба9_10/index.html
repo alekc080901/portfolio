@@ -1,0 +1,83 @@
+<!DOCTYPE HTML>
+<html lang="ru">
+
+<head>
+    <title>
+        Филворды онлайн
+    </title>
+    <meta charset="utf-8">
+    <meta name="description" content="Филворды (венгерские кроссворды) – занимательные головоломки, цель которых – искать слова 
+        на сетке из букв. Они отлично помогают в развитии наблюдательности, а также являются отличным способом скоротать время.
+        На нашем сайте вы можете решить филворды онлайн бесплатно и без регистрации.">
+    <meta name="keywords" content="Филворд, Филворд онлайн, головоломка, онлайн, кроссворд, слово">
+    <meta name="author" content="Alexander Nikitin">
+
+    <link rel="stylesheet" href="nav.css">
+    <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+    <nav>
+        <div href="simple_fillword.html" class="logo">
+            Филворды Онлайн
+        </div>
+        <div class="level-holder">
+            <span>Уровень: 3</span>
+            <progress value="25" max="100"> </progress>
+        </div>
+
+        <div id="shop_link" class="header-link">
+            <img name="shop" src="./img/icons/shop.png"  alt="">
+            <span>Магазин</span>
+        </div>
+
+        <div id="login_link" class="header-link">
+            <img src="./img/icons/key-icon.png" alt="">
+            <span>Войти</span>
+        </div>
+    </nav>
+
+    <div class="content-container">
+        <aside>
+            <header>Режимы игры</header>
+            <div id="simple_fillword">Простой филворд</div>
+            <div id="time_fillword">Филворд на время</div>
+            <div id="liked">Понравившиеся</div>
+        </aside>
+
+        <main id="main">
+            <header>Простой филворд</header>
+            <div class="fillword-container">
+                <div class="fillword-table-container fillword-table-container-5">
+                </div>
+                <button class="like-button">❤️</button>
+            </div>
+
+            <div>
+                <p class="change-size-label">Настроить размер</p>
+                <select id="size_form">
+                    <option value="4">4X4</option>
+                    <option value="5">5X5</option>
+                    <option value="6" selected>6X6</option>
+                    <option value="7">7X7</option>
+                    <option value="8">8X8</option>
+                    <option value="9">9X9</option>
+                    <option value="10">10X10</option>
+                </select>
+            </div>
+
+            <p><b>Обратная связь:</b></p>
+            <form name="feedback" action="http://127.0.0.1:5000/server" method="post">
+                <textarea name="comment" cols="30" rows="3"></textarea><br>
+            <input type="submit" value="Отправить">
+            </form>
+        </main>
+    </div>
+
+    <script src="./src/structure.js"></script>
+    <script src="./src/fillword.js"></script>
+    <script src="./src/animation.js"></script>
+    <script src="./src/form.js"></script>
+</body>
+
+</html>
