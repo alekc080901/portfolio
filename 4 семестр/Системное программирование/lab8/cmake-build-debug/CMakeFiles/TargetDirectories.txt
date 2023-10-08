@@ -1,3 +1,0 @@
-D:/UNIX/VM_EXCHANGE/lab8/cmake-build-debug/CMakeFiles/lab2.dir
-D:/UNIX/VM_EXCHANGE/lab8/cmake-build-debug/CMakeFiles/edit_cache.dir
-D:/UNIX/VM_EXCHANGE/lab8/cmake-build-debug/CMakeFiles/rebuild_cache.dir

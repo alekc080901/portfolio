@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Modal Component</title>
+    <script src="https://unpkg.com/vue@2"></script>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', path='css/modal.css') }}"/>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', path='css/home.css') }}"/>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', path='css/beads.css') }}"/>
+
+    <script>
+        const staticRoot = "{{ url_for('static', path='') }}"
+    </script>
+
+    <!-- template for the modal component -->
+    <script type="text/x-template" id="modal-template">
+        <transition name="modal">
+            <div class="modal-mask">
+                <div class="modal-wrapper" @click.self="$emit('close')">
+                    <div class="modal-container">
+
+                        <div class="modal-header">
+                            <slot name="header">
+                                default header
+                            </slot>
+                        </div>
+
+                        <div class="modal-body">
+                            <slot name="body">
+                                default body
+                            </slot>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </transition>
+    </script>
+
+</head>
+<body>
+
+<div id="app" @mouseup="draw = false">
+    <div v-cloak>
+        <div class="image-load-placeholder" v-show="imageProcessing">
+            <img src="{{ url_for('static', path='img/spinner.svg') }}">
+            <div>Подождите, идет обработка...</div>
+        </div>
+        {% raw %}
+        <modal v-if="showImageForm" @close="showImageForm = false; showImageUploadError = false; filename = '';">
+            <form id="image-form" slot="body" @submit.prevent="getBeads" method="post" created="formCreated">
+                <label>
+                    Количество цветов:
+                    <input type="number" id='input-palette' name="color_num" value="30">
+                </label>
+
+                <label>
+                    Размер полотна:
+                    <select id='input-coefficient' name="bead_coefficient" v-model="scaleSelected">
+                        <option v-for="i in range(4.0, 0.25, -0.25)"
+                                :value="i"
+                        >{{ +(1 / i).toFixed(2) }}x
+                        </option>
+                    </select>
+                </label>
+
+                <div class="upload-file">
+                    <label for="input-img" class="custom-file-upload">
+                        Загрузить файл
+                    </label>
+
+                    <input id='input-img' type="file" name="img" @change="changeFilename">
+
+                    <div class="filename" v-if="filename !== ''">
+                        {{filename}}
+                    </div>
+                </div>
+
+                <div class="upload-error" v-show="showImageUploadError">
+                    Неверный ввод!
+                </div>
+
+                <button type="submit">Загрузить</button>
+            </form>
+            <h3 slot="header">Настройки изображения</h3>
+        </modal>
+        {% endraw %}
+
+        <div class="main" v-if="currentScheme.length > 0 && !imageProcessing">
+
+            <div class="palette-header" v-if="currentPalette !== null && currentPalette !== undefined">
+                <div class="erase-icon"
+                     @click="currentColor = [0, 0, 0, 0]"
+                     :class="{ 'eraser-chosen': currentColor !== null && currentColor[3] === 0 }"
+                ><img src="{{ url_for('static', path='img/eraser.png') }}"></div>
+
+                <div class="bead palette-bead"
+                     :class="{ 'palette-bead-chosen': currentColor === color }"
+                     v-for="color in currentPalette.filter(item => item[3] != 0)"
+                     :style="{
+                 backgroundColor: `rgba(${color.join(',')})`
+                 }"
+                     @click="currentColor = color"
+                ></div>
+            </div>
+            {% raw %}
+            <div class="bead-wrapper">
+                <div id="beads-frame"
+                     :class="{'beads-frame-vertical': orientation === 'vertical',
+                  'beads-frame-horizontal': orientation === 'horizontal'}">
+                    <div :class="{
+                    'bead-column': orientation === 'vertical',
+                    'bead-row': orientation === 'horizontal',
+                    'bead-column-alternate': orientation === 'vertical' && weaving === 'alternate',
+                    'bead-row-alternate': orientation === 'horizontal' && weaving === 'alternate'
+                    }"
+                         v-for="(row, colIndex) in currentScheme">
+                        <div class="bead image-bead"
+                             :class="{'vertical-bead': orientation === 'vertical', 'horizontal-bead': orientation === 'horizontal'}"
+                             :id="`bead-${colIndex}-${rowIndex}`"
+                             v-for="(bead, rowIndex) in row"
+                             :style="{backgroundColor: `rgba(${bead.join(',')})` }"
+                             @mousedown.prevent="changeBeadColor"
+                             @mouseover="changeBeadColor"
+                        ></div>
+                    </div>
+                </div>
+
+                <div class="beads-config" v-if="configExpanded">
+                    <div class="beads-config-wrapper">
+                        <form class="orientation-form">
+                            <h4>Направление:</h4>
+                            <div class="config-choice">
+                                <div class="radio-button">
+                                    <input id="radio-vertical" class="radio-button" type="radio" name="orientation"
+                                           value="vertical"
+                                           v-model="orientation">
+                                    <label for="radio-vertical">Вертикальная</label>
+                                </div>
+                                <div class="radio-button">
+                                    <input id="radio-horizontal" class="radio-button" type="radio" name="orientation"
+                                           value="horizontal"
+                                           v-model="orientation">
+                                    <label for="radio-horizontal">Горизонтальная</label>
+                                </div>
+                            </div>
+                        </form>
+
+                        <form class="orientation-form">
+                            <h4>Алгоритм:</h4>
+                            <div class="config-choice">
+                                <div class="radio-button">
+                                    <input id="radio-max" class="radio-button" type="radio" name="orientation"
+                                           value="max"
+                                           v-model="algorithm">
+                                    <label for="radio-max">Максимальное</label>
+                                </div>
+                                <div class="radio-button">
+                                    <input id="radio-average" class="radio-button" type="radio" name="orientation"
+                                           value="average"
+                                           v-model="algorithm">
+                                    <label for="radio-average">Среднее</label>
+                                </div>
+                            </div>
+                        </form>
+
+                        <form class="orientation-form">
+                            <h4>Плетение:</h4>
+                            <div class="config-choice">
+                                <div class="radio-button">
+                                    <input id="radio-straight" class="radio-button" type="radio" name="orientation"
+                                           value="straight"
+                                           v-model="weaving">
+                                    <label for="radio-straight">Прямое</label>
+                                </div>
+                                <div class="radio-button">
+                                    <input id="radio-alternate" class="radio-button" type="radio" name="orientation"
+                                           value="alternate"
+                                           v-model="weaving">
+                                    <label for="radio-alternate">Мозаика</label>
+                                </div>
+                            </div>
+                        </form>
+
+                        {% endraw %}
+                        <div class="hide" @click="configExpanded = false">
+                            <img class="collapse-icon" src="{{ url_for('static', path='img/arrow-right.svg') }}">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="expand" v-else @click="configExpanded = true">
+                    <img class="expand-icon" src="{{ url_for('static', path='img/arrow-right.svg') }}">
+                </div>
+                {% raw %}
+                <div class="bead-counter">
+                    <div class="count-element" v-for="(count, color) in beadsCount">
+                        <span>{{ count }}</span>
+                        <div class="bead vertical-bead" :style="{ backgroundColor: color }"></div>
+                    </div>
+                </div>
+                {% endraw %}
+            </div>
+        </div>
+
+        <div v-else-if="!imageProcessing" class="bead-placeholder">
+            Загрузите изображение или json-файл
+        </div>
+
+        <div class="file-buttons">
+            <div class="upload-button">
+                <button id="show-modal" @click="showImageForm = true">Загрузить изображение/файл</button>
+            </div>
+
+            <div class="upload-button" v-if="currentScheme.length > 0 && !imageProcessing">
+                <button @click="saveScheme">Сохранить в файл</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="{{ url_for('static', path='js/palette.js') }}"></script>
+<script src="{{ url_for('static', path='js/home.js') }}"></script>
+</body>
+</html>
